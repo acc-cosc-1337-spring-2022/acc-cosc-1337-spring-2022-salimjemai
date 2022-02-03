@@ -44,3 +44,13 @@ Makefile
 lib*
 *_exe
 
+#ignore build files
+*.json
+*.ninja
+*.cmake
+VSInheritEnvironments.txt
+cmake.check_cache
+CMakeCXXCompilerId.cpp
+*.log
+TargetDirectories.txt
+*.c
