@@ -1,58 +1,62 @@
 #include<iostream>
 #include<string>
 using std::cout; using std::cin; using std::string;
+
 //write include statements
-#include "decisions.h"
+#include "../src/homework/03_decisions/decisions.h"
 
-/*
-In main write code to capture a letter_grade and credit_hours from the keyboard:
-
-
-Grade   Credit Hours	grade_points   credit_points
-A          3            4              12
-B          3            3               9
-C          3            2               6
------------------------------------------------
-           9                           27
-After each user input convert the Grade to grade points by calling the get_grade_points function, and
-keep a running total for both credit_points and credit_hours.
-
-Call the calculate_gpa function with its arguments.
-The GPA should calculate to 3.0, make sure to display it before program exits.
-
-Display:
-GPA 3.0
-
-*/
+// define the main function
 int main() 
 {
-	string letter_grade;
-	int credit_hours, sum_credit_hours = 0, sum_credit_points = 0;
+	// declare the grade and the user option
+	int grade, user_option;
 
-	cout << "Enter letter grade: ";
-	cin >> letter_grade;
-	cout << "Enter credit hours: ";
-	cin >> credit_hours;
-	sum_credit_points += get_grade_points(letter_grade) * credit_hours;
-	sum_credit_hours += credit_hours;
+	// display the menu header
+	cout<<"************************************************\n";
+	cout<<"\t\tMAIN MENU\n";
+	cout<<"1- Letter grade using if \n2- Letter grade using switch \n3- Exit\n";
+	cout<<"************************************************\n";
 
-	cout << "Enter letter grade: ";
-	cin >> letter_grade;
-	cout << "Enter credit hours: ";
-	cin >> credit_hours;
-	sum_credit_points += get_grade_points(letter_grade)  * credit_hours;
-	sum_credit_hours += credit_hours;
+	// Prompt the user to enter the menu choice
+	cout<<"Enter your choice: ";
+	cin>>user_option;
 
-	cout << "Enter letter grade: ";
-	cin >> letter_grade;
-	cout << "Enter credit hours: ";
-	cin >> credit_hours;
-	sum_credit_points += get_grade_points(letter_grade)  * credit_hours;
-	sum_credit_hours += credit_hours;
+	// This swith statement is to determine the proper function to run
+	switch (user_option)
+	{
+		
+		// Letter grade using if
+		case 1:
+			cout<<"Enter a grade number from 0 to 100: ";
+			cin>>grade;
 
+			if (grade >= 0 && grade <= 100)
+				cout<<"The letter grade using if is: "<<get_letter_grade_using_if(grade);
+			else
+				cout<<"The number entered is out of range.";
+			break;
+		
+		// Letter grade using switch 
+		case 2:
+			cout<<"Enter a grade number from 0 to 100: ";
+			cin>>grade;
 
-	double gpa = calculate_gpa(sum_credit_hours, sum_credit_points);
-	cout << "GPA: " << gpa;
+			if (grade >= 0 && grade <= 100)
+				cout<<"The letter grade using scwitch is: "<<get_letter_grade_using_switch(grade);
+			else
+				cout<<"The number entered is out of range.";
+			break;
+		
+		// Exit
+		case 3:
+			cout<<"The Program is terminated.";
+			break;
 
+		default:
+			cout<<"Invalid option entered!";
+			break;
+	}
+
+	// terminate the main function
 	return 0;
-}
+} 
