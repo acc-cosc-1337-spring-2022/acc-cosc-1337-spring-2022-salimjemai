@@ -1,30 +1,38 @@
 #include "dna.h"
-/*
-Write code for function get_gc_content that accepts
-a const reference string parameter and returns a double.
-Calculate GC content:
-Iterate string count Gs and Cs, divide count by string length.
-Return quotient.
-*/
+using namespace std;
+
+// Factorial function
+int factorial(int num)
+{
+    //using a loop maybe a for(int h :num) do something 
+    // or use do ...while
+    int sum = 0;
+
+    
+    while (num > 0)
+    {
+        sum = sum + (num * (num-1));
+        //num = num - 1;
+    }
+    return sum;
+}
 
 
+// gcd (Greatest Common Divisor) function
+int gcd(int num1, int num2)
+{
 
+    //using a loop maybe a for(int h :num) do something 
+    // or use do ...while
+    while (num1 != num2)
+    {
+        if (num1 < num2)
+            num1 = num2;
 
-/*
-Write code for function get_reverse_string that
-accepts a string parameter and returns a string reversed.
-*/
+        if (num1 > num2)
+            num1 = num2 - num1;        
+        
+    }
 
-
-
-/*
-Write prototype for function get_dna_complement that
-accepts a string dna and returns a string.
-Calculate dna complement:
-a. call function get_reverse_string(dna), save results to a local string variable
-b. iterate local string variable and
-    replace A with T, T with A, C with G and G with C
-c. return string
-
-*/
-
+    return num1;
+}
